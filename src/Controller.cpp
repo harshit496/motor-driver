@@ -14,7 +14,9 @@ void Controller::initVars(int accel_duration, int decel_duration, int run_time, 
 }
 
 void Controller::loopService(timestamp_t ts_now){
-  std::cout << motor_state_map_[curr_state_] << std::endl;
+  if (curr_state_ != next_state_){
+    std::cout << motor_state_map_[curr_state_] << std::endl;
+  }
   if (curr_state_ == idle && next_state_ == idle){
     next_state_ = accel;
   }
